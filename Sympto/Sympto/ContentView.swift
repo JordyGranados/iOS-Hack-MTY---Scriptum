@@ -50,9 +50,7 @@ struct ContentView: View {
                     .padding(.top, 5)
 
                     // Login Button
-                    Button(action: {
-                        showDetail = true
-                    }) {
+                    NavigationLink(destination: InicioView()){
                         Text("Iniciar Sesión")
                             .font(.headline)
                             .frame(maxWidth: .infinity)
