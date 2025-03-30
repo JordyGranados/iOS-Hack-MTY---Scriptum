@@ -66,8 +66,8 @@ struct DescubrimientosView: View {
                         .fontWeight(.bold)
                     
                     Text("Noticias y avances de la semana")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .font(.title3)
+                        .foregroundColor(Color(hex: "777777"))
                 }
                 .padding(.horizontal)
                 .padding(.top)
@@ -87,7 +87,7 @@ struct DescubrimientosView: View {
                 // Lista de noticias
                 VStack(spacing: 16) {
                     Text("Noticias de la semana")
-                        .font(.headline)
+                        .font(.title2)
                         .padding(.horizontal)
                     
                     ForEach(noticias) { noticia in
