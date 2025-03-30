@@ -30,7 +30,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		FBC6652C2D9917EA00CDF9FF /* Exceptions for "Sympto" folder in "Sympto" target */ = {
+		D93F1A132D991A6200AD8A5E /* Exceptions for "Sympto" folder in "Sympto" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -43,7 +43,7 @@
 		8C3BB2932D98A6CD0055319B /* Sympto */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				FBC6652C2D9917EA00CDF9FF /* Exceptions for "Sympto" folder in "Sympto" target */,
+				D93F1A132D991A6200AD8A5E /* Exceptions for "Sympto" folder in "Sympto" target */,
 			);
 			path = Sympto;
 			sourceTree = "<group>";
