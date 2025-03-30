@@ -62,8 +62,9 @@ struct TabBarExampleView: View {
                     InicioView()
                 } else if selectedTab == 1 {
                     DescubrimientosView()
-                } /* else if selectedTab == 2 {
-                } */ else if selectedTab == 3 {
+                }  else if selectedTab == 2 {
+                    MiSalud()
+                }  else if selectedTab == 3 {
                     ComunidadView()
                 } else {
                     HistorialView()
