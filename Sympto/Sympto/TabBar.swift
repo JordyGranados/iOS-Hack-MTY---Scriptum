@@ -59,7 +59,7 @@ struct TabBarExampleView: View {
             // Content based on selected tab
             Group {
                 if selectedTab == 0 {
-                    ContentView()
+                    InicioView()
                 } else if selectedTab == 1 {
                     DescubrimientosView()
                 } else if selectedTab == 2 {
