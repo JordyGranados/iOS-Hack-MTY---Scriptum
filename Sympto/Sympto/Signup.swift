@@ -98,7 +98,7 @@ struct Signup: View {
             }
             .background(Color.white.ignoresSafeArea()) // Still white
             .sheet(isPresented: $showDetail) {
-                InicioView()
+                DetailView()
             }
         }
     }
