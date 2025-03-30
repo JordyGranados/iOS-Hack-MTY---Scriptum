@@ -50,7 +50,7 @@ struct ContentView: View {
                     .padding(.top, 5)
 
                     // Login Button
-                    NavigationLink(destination: InicioView()){
+                    NavigationLink(destination: TabBarExampleView()){
                         Text("Iniciar Sesión")
                             .font(.headline)
                             .frame(maxWidth: .infinity)
@@ -72,11 +72,25 @@ struct ContentView: View {
             }
             .background(Color.white.ignoresSafeArea())
             .sheet(isPresented: $showDetail) {
-                InicioView()
+                TabBarExampleView()
             }
         }
     }
 }
+
+struct DetailView: View {
+    var body: some View {
+        VStack {
+            Text("Bienvenido a Sympto")
+                .font(.title)
+                .foregroundColor(.black)
+                .padding()
+        }
+        .frame(width: 300, height: 200)
+        .background(Color.white)
+    }
+}
+
 #Preview {
     ContentView()
 }
