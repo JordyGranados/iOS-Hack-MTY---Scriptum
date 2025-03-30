@@ -438,6 +438,21 @@ extension View {
 let datosPublicacionesMuestra = [
     Publicacion(
         usuario: Usuario(
+            nombre: "Ana García",
+            username: "ana_bienestar",
+            imagenPerfil: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop",
+            esVerificado: true
+        ),
+        contenido: "¡Miren lo que preparé hoy! Batido antiinflamatorio con cúrcuma, jengibre y frutas. Ha sido parte de mi rutina diaria durante el último mes y noto menos rigidez por las mañanas. La alimentación marca una gran diferencia. Receta en los comentarios 👇",
+        fecha: "5h",
+        imagenURL: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?q=80&w=2071&auto=format&fit=crop",
+        megustas: 122,
+        comentarios: 43,
+        compartidos: 15,
+        meGustaActivo: false
+    ),
+    Publicacion(
+        usuario: Usuario(
             nombre: "Laura Martínez",
             username: "laura_fibro",
             imagenPerfil: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=688&auto=format&fit=crop",
@@ -464,21 +479,6 @@ let datosPublicacionesMuestra = [
         megustas: 38,
         comentarios: 24,
         compartidos: 7,
-        meGustaActivo: false
-    ),
-    Publicacion(
-        usuario: Usuario(
-            nombre: "Ana García",
-            username: "ana_bienestar",
-            imagenPerfil: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop",
-            esVerificado: true
-        ),
-        contenido: "¡Miren lo que preparé hoy! Batido antiinflamatorio con cúrcuma, jengibre y frutas. Ha sido parte de mi rutina diaria durante el último mes y noto menos rigidez por las mañanas. La alimentación marca una gran diferencia. Receta en los comentarios 👇",
-        fecha: "5h",
-        imagenURL: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?q=80&w=2071&auto=format&fit=crop",
-        megustas: 122,
-        comentarios: 43,
-        compartidos: 15,
         meGustaActivo: false
     ),
     Publicacion(
