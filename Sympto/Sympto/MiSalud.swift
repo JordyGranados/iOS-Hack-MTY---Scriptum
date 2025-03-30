@@ -24,9 +24,17 @@ struct MiSalud: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                Text("Registro de síntomas – \(Date().formatted(.dateTime.month().day()))")
-                    .font(.title2.bold())
-                    .frame(maxWidth: .infinity, alignment: .center)
+                VStack(spacing: 6) {
+                    Text("Mi Salud")
+                        .font(.largeTitle.bold())
+                        .foregroundColor(.primary)
+
+                    Text("Registro de síntomas – \(Date().formatted(.dateTime.month().day()))")
+                        .font(.title2)
+                        .foregroundColor(.secondary)
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.bottom, 8)
 
                 Text("Enfermedad: \(enfermedad)")
                     .font(.subheadline)
@@ -47,7 +55,7 @@ struct MiSalud: View {
                                         .padding(10)
                                         .frame(minWidth: 45)
                                         .background(sintomas[index].intensidad == nivel ? Color(hex: "#87B9C0") : .gray.opacity(0.2))
-                                        .foregroundColor(.white)
+                                        .foregroundColor(Color(hex: "#111111"))
                                         .clipShape(Capsule())
                                 }
                             }
@@ -71,22 +79,23 @@ struct MiSalud: View {
                             enfermedadSeleccionada = ""
                         }
                     }
-                    .foregroundColor(.blue)
+                    .foregroundColor(Color(hex: "#4B858D"))
                 }
 
                 // Campo para agregar síntoma
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Agregar síntoma adicional:")
+                    Text("¿Tuviste algún otro síntoma hoy?")
                         .font(.subheadline)
-                    TextField("Nombre del síntoma", text: $nuevoSintoma)
-                        .textFieldStyle(.roundedBorder)
-                    Button("Agregar síntoma") {
-                        if !nuevoSintoma.isEmpty {
-                            sintomas.append(Sintoma(nombre: nuevoSintoma))
-                            nuevoSintoma = ""
-                        }
-                    }
-                    .foregroundColor(.blue)
+                    TextEditor(text: $nuevoSintoma)
+                        .frame(height: 30)
+                        .padding(10)
+                        .background(Color(hex: "#FAFAFA"))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.gray.opacity(0.4), lineWidth:1)
+                        )
+                        .cornerRadius(10)
+                        .background(Color (hex: "#FAFAFA"))
                 }
 
                 // Botón de guardar
@@ -112,22 +121,20 @@ struct MiSalud: View {
         switch enfermedad.lowercased() {
         case "lupus":
             sintomas = [
-                Sintoma(nombre: "Fatiga crónica"),
-                Sintoma(nombre: "Dolor articular"),
-                Sintoma(nombre: "Erupciones cutáneas"),
-                Sintoma(nombre: "Fiebre"),
-                Sintoma(nombre: "Pérdida de cabello"),
-                Sintoma(nombre: "Dolor en el pecho"),
-                Sintoma(nombre: "Inflamación en articulaciones")
+                Sintoma(nombre: "Nivel de Fatiga Hoy:"),
+                Sintoma(nombre: "Nivel de Dolor Articular:"),
+                Sintoma(nombre: "Nivel de Fiebre:"),
+                Sintoma(nombre: "Nivel de Dolor en el pecho:"),
+                Sintoma(nombre: "Nivel de Inflamación en articulaciones:")
             ]
         case "fibromialgia":
             sintomas = [
-                Sintoma(nombre: "Dolor muscular"),
-                Sintoma(nombre: "Fatiga persistente"),
-                Sintoma(nombre: "Niebla mental"),
-                Sintoma(nombre: "Insomnio"),
-                Sintoma(nombre: "Hipersensibilidad"),
-                Sintoma(nombre: "Dolor en puntos específicos")
+                Sintoma(nombre: "Nivel de Fatiga Hoy:"),
+                Sintoma(nombre: "Nivel de Dolor muscular:"),
+                Sintoma(nombre: "Nivel de Niebla mental:"),
+                Sintoma(nombre: "Nivel de Insomnio:"),
+                Sintoma(nombre: "Nivel de Hipersensibilidad:"),
+                Sintoma(nombre: "Nivel de Dolor General:")
             ]
         default:
             sintomas = [Sintoma(nombre: "Síntoma general 1")]
@@ -138,6 +145,9 @@ struct MiSalud: View {
         print("== Registro de síntomas ==")
         for s in sintomas {
             print("- \(s.nombre): \(s.intensidad)")
+        }
+        if !sintomas.isEmpty {
+            print("\nSíntoma adicional reportado: \n\(nuevoSintoma)")
         }
     }
 }
