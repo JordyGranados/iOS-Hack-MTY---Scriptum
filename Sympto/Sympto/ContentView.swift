@@ -72,25 +72,11 @@ struct ContentView: View {
             }
             .background(Color.white.ignoresSafeArea())
             .sheet(isPresented: $showDetail) {
-                DetailView()
+                InicioView()
             }
         }
     }
 }
-
-struct DetailView: View {
-    var body: some View {
-        VStack {
-            Text("Bienvenido a Sympto")
-                .font(.title)
-                .foregroundColor(.black)
-                .padding()
-        }
-        .frame(width: 300, height: 200)
-        .background(Color.white)
-    }
-}
-
 #Preview {
     ContentView()
 }
