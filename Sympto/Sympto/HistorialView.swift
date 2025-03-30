@@ -53,18 +53,18 @@ struct HistorialView: View {
     ]
 
     var body: some View {
-        NavigationStack {
-            VStack {
-                profileHeader
-
-                Divider()
-                    .padding(.vertical)
-
-                historialList
+        //ScrollView{
+            NavigationStack {
+                VStack {
+                    profileHeader
+                    
+                    historialList
+                }
+                .edgesIgnoringSafeArea(.top)
+                .frame(maxWidth: .infinity)
             }
-            .edgesIgnoringSafeArea(.top)
         }
-    }
+   // }
 
     // MARK: - Profile Header
     private var profileHeader: some View {
@@ -76,12 +76,13 @@ struct HistorialView: View {
                     .scaledToFill()
                     .frame(height: 200)
                     .clipped()
+                    .overlay(Rectangle().stroke(Color.black, lineWidth:4))
                 
                 // Profile Image
                 Image("OldGuy")
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 120, height: 120)
+                    .frame(width: 150, height: 150)
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.black, lineWidth: 4))
                     .background(Circle().fill(Color.white))
@@ -93,10 +94,19 @@ struct HistorialView: View {
                 Text("Emilio Puga")
                     .font(.system(size: 30, weight: .bold))
                 
-                Text("📍 Monterrey, MX · 🎂 23 años · ♂️ Masculino")
+                Text("📍 Monterrey, MX · 🎂 83 años · ♂️ Masculino")
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }
+            
+            //Divider()
+            //    .padding(.vertical)
+            
+            Text("Historial de salud")
+                .font(.largeTitle.bold())
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 25)
+                .padding(.vertical, 10)
         }
     }
 
@@ -112,8 +122,9 @@ struct HistorialView: View {
                         .foregroundColor(.gray)
                 }
             }
+            .padding(.vertical, 5)
         }
-        .navigationTitle("Historial de Salud")
+        //.navigationTitle("Historial de Salud")
     }
 }
 
