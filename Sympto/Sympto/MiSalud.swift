@@ -36,37 +36,25 @@ struct MiSalud: View {
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.bottom, 8)
 
-                Text("Enfermedad: \(enfermedad)")
-                    .font(.title2.bold())
+                Text("Enfermedad: \(enfermedad.uppercased())")
+                    .font(.title3.bold())
+                    .foregroundColor(Color(hex: "#111111"))
                     .frame(maxWidth: .infinity, alignment: .center)
 
                 ForEach(sintomas.indices, id: \.self) { index in
                     HStack(alignment: .center) {
-                        Text("Nivel de \(sintomas[index].nombre)")
-                            .font(.headline)
+                        Text("Nivel de \(sintomas[index].nombre):")
+                            .font(.subheadline)
                             .frame(width: 180, alignment: .leading)
                         
+                        HStack(spacing:12){
                         Spacer()
-
-                        HStack(spacing: 12) {
-                            ForEach(niveles, id: \.self) { nivel in
-                                Button(action: {
-                                    sintomas[index].intensidad = nivel
-                                }) {
-                                    Text(nivel)
-                                        .font(.caption)
-                                        .padding(10)
-                                        .frame(minWidth: 45)
-                                        .background(sintomas[index].intensidad == nivel ? Color(hex: "#87B9C0") : .gray.opacity(0.2))
-                                        .foregroundColor(Color(hex: "#111111"))
-                                        .clipShape(Capsule())
-                                }
-                            }
-                        }
-                        .frame(maxWidth: .infinity, alignment: .center)
+                        nivelButtons(for: index)
+                        Spacer()
+                    }
                     }
                     .padding(.vertical, 8)
-                    
+
                     Divider()
                 }
 
@@ -86,20 +74,20 @@ struct MiSalud: View {
                     .foregroundColor(Color(hex: "#4B858D"))
                 }
 
-                // Campo para agregar síntoma
+                // Campo para registrar síntoma adicional libre
                 VStack(alignment: .leading, spacing: 8) {
                     Text("¿Tuviste algún otro síntoma hoy?")
                         .font(.subheadline)
                     TextEditor(text: $nuevoSintoma)
-                        .frame(height: 30)
+                        .frame(height: 20)
                         .padding(10)
-                        .background(Color(hex: "#FAFAFA"))
+                        .background(Color.white)
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.gray.opacity(0.4), lineWidth:1)
+                                .stroke(Color.gray.opacity(0.4), lineWidth: 1)
                         )
                         .cornerRadius(10)
-                        .background(Color (hex: "#FAFAFA"))
+                        .background(Color.white)
                 }
 
                 // Botón de guardar
@@ -116,29 +104,54 @@ struct MiSalud: View {
                 Spacer().frame(height: 100) // Espacio para TabView
             }
             .padding()
+            .background(Color.white) // Fondo blanco para evitar color gris por defecto
         }
         .onAppear(perform: cargarSintomas)
+        .background(Color.white) // Fondo blanco total
         .navigationTitle("Mi Salud")
+    }
+
+    func nivelButtons(for index: Int) -> some View {
+        HStack(spacing: 12) {
+            ForEach(niveles, id: \.self) { nivel in
+                let isSelected = sintomas[index].intensidad == nivel
+                Button(action: {
+                    sintomas[index].intensidad = nivel
+                }) {
+                    Text(nivel)
+                        .font(.caption)
+                        .padding(10)
+                        .frame(minWidth: 45)
+                        .background(isSelected ? Color(hex: "#87B9C0") : Color(hex: "#FAFAFA"))
+                        .foregroundColor(isSelected ? .white : .black)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                        )
+                        .clipShape(Capsule())
+                }
+            }
+        }
     }
 
     func cargarSintomas() {
         switch enfermedad.lowercased() {
         case "lupus":
             sintomas = [
-                Sintoma(nombre: "Fatiga Hoy:"),
-                Sintoma(nombre: "Dolor Articular:"),
-                Sintoma(nombre: "Fiebre:"),
-                Sintoma(nombre: "Dolor en el pecho:"),
-                Sintoma(nombre: "Inflamación en articulaciones:")
+                Sintoma(nombre: "Fatiga Hoy"),
+                Sintoma(nombre: "Dolor Articular"),
+                Sintoma(nombre: "Fiebre"),
+                Sintoma(nombre: "Dolor en el pecho"),
+                Sintoma(nombre: "Inflamación en articulaciones")
             ]
         case "fibromialgia":
             sintomas = [
-                Sintoma(nombre: "Fatiga Hoy:"),
-                Sintoma(nombre: "Dolor muscular:"),
-                Sintoma(nombre: "Niebla mental:"),
-                Sintoma(nombre: "Insomnio:"),
-                Sintoma(nombre: "Hipersensibilidad:"),
-                Sintoma(nombre: "Dolor General:")
+                Sintoma(nombre: "Fatiga Hoy"),
+                Sintoma(nombre: "Dolor muscular"),
+                Sintoma(nombre: "Niebla mental"),
+                Sintoma(nombre: "Insomnio"),
+                Sintoma(nombre: "Hipersensibilidad"),
+                Sintoma(nombre: "Dolor General")
             ]
         default:
             sintomas = [Sintoma(nombre: "Síntoma general 1")]
@@ -150,11 +163,12 @@ struct MiSalud: View {
         for s in sintomas {
             print("- \(s.nombre): \(s.intensidad)")
         }
-        if !sintomas.isEmpty {
-            print("\nSíntoma adicional reportado: \n\(nuevoSintoma)")
+        if !nuevoSintoma.isEmpty {
+            print("\nSíntoma adicional reportado:\n\(nuevoSintoma)")
         }
     }
 }
+
 #Preview {
     MiSalud()
 }

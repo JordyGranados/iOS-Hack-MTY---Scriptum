@@ -29,7 +29,7 @@ struct InicioView: View {
                     
                     Image(systemName: "person.circle.fill")
                         .font(.system(size: 40))
-                        .foregroundColor(.blue)
+                        .foregroundColor(Color(hex: "#4B858D"))
                 }
                 .padding(.horizontal)
                 .padding(.top)
@@ -82,8 +82,8 @@ struct InicioView: View {
                         HStack(spacing: 12) {
                             SymptomPill(symptom: "Dolor articular", count: 5, color: .red)
                             SymptomPill(symptom: "Fatiga", count: 3, color: .orange)
-                            SymptomPill(symptom: "Rigidez", count: 4, color: .blue)
-                            SymptomPill(symptom: "Dolor de cabeza", count: 2, color: .purple)
+                            SymptomPill(symptom: "Rigidez", count: 4, color: .red)
+                            SymptomPill(symptom: "Dolor de cabeza", count: 2, color: .green)
                             SymptomPill(symptom: "Sensibilidad", count: 3, color: .green)
                         }
                         .padding(.horizontal)
@@ -103,7 +103,7 @@ struct InicioView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.blue)
+                    .background(Color(hex: "#4B858D"))
                     .foregroundColor(.white)
                     .cornerRadius(12)
                 }
@@ -121,6 +121,7 @@ struct InicioView: View {
                             title: "Entendiendo la Fibromialgia",
                             source: "Asociación Nacional de Fibromialgia",
                             icon: "doc.text.fill"
+                            
                         )
                         
                         InfoResourceCard(
@@ -220,7 +221,7 @@ struct InfoResourceCard: View {
         HStack {
             Image(systemName: icon)
                 .font(.system(size: 26))
-                .foregroundColor(.blue)
+                .foregroundColor(Color(hex: "#4B858D"))
                 .frame(width: 40, height: 40)
                 .padding(8)
                 .background(Color.blue.opacity(0.1))

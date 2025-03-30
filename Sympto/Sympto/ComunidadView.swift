@@ -62,7 +62,7 @@ struct ComunidadView: View {
                         }) {
                             Image(systemName: "bell.fill")
                                 .font(.title2)
-                                .foregroundColor(.blue)
+                                .foregroundColor(Color(hex: "#4B858D"))
                                 .padding(8)
                                 .background(Color.blue.opacity(0.1))
                                 .clipShape(Circle())
@@ -84,7 +84,7 @@ struct ComunidadView: View {
                                         .font(.subheadline)
                                         .padding(.horizontal, 16)
                                         .padding(.vertical, 8)
-                                        .background(temaSeleccionado == tema ? Color.blue : Color.gray.opacity(0.2))
+                                        .background(temaSeleccionado == tema ? Color(hex: "#4B858D") : Color.gray.opacity(0.2))
                                         .foregroundColor(temaSeleccionado == tema ? .white : .primary)
                                         .cornerRadius(20)
                                 }
@@ -165,7 +165,7 @@ struct ComunidadView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .frame(width: 60, height: 60)
-                            .background(Circle().fill(Color.blue))
+                            .background(Circle().fill(Color(hex: "#4B858D")))
                             .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
                     }
                     .padding(.trailing, 20)
@@ -182,7 +182,7 @@ struct ComunidadView: View {
             // Avatar del usuario
             Image(systemName: "person.circle.fill")
                 .font(.title)
-                .foregroundColor(.blue)
+                .foregroundColor(Color(hex: "#4B858D"))
             
             // Campo de texto
             Text("¿Qué quieres compartir hoy?")
