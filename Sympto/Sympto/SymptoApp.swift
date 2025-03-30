@@ -12,6 +12,7 @@ struct SymptoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .preferredColorScheme(.light) // Fuerza el modo claro
         }
     }
 }

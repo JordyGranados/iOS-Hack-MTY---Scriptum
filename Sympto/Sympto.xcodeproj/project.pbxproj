@@ -29,9 +29,22 @@
 		8C3BB2AC2D98A6CF0055319B /* SymptoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SymptoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		8C4664D72D9910BE00A86126 /* Exceptions for "Sympto" folder in "Sympto" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 8C3BB2902D98A6CD0055319B /* Sympto */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		8C3BB2932D98A6CD0055319B /* Sympto */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8C4664D72D9910BE00A86126 /* Exceptions for "Sympto" folder in "Sympto" target */,
+			);
 			path = Sympto;
 			sourceTree = "<group>";
 		};
