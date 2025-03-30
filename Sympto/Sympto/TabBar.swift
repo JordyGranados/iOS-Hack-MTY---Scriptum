@@ -48,10 +48,10 @@ struct TabBarExampleView: View {
     
     let tabItems = [
         TabItem(icon: "house", title: "Inicio", tag: 0),
-        TabItem(icon: "magnifyingglass", title: "Buscar", tag: 1),
-        TabItem(icon: "plus.circle.fill", title: "Añadir", tag: 2),
-        TabItem(icon: "heart", title: "Favoritos", tag: 3),
-        TabItem(icon: "person", title: "Perfil", tag: 4)
+        TabItem(icon: "newspaper", title: "Descubrimientos", tag: 1),
+        TabItem(icon: "arrow.up.heart", title: "Mi Salud", tag: 2),
+        TabItem(icon: "person.3", title: "Comunidad", tag: 3),
+        TabItem(icon: "clock", title: "Historial", tag: 4)
     ]
     
     var body: some View {
