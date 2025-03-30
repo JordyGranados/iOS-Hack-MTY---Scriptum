@@ -82,6 +82,7 @@ struct ComunidadView: View {
                                 }) {
                                     Text(tema)
                                         .font(.subheadline)
+                                        .fontWeight(temaSeleccionado == tema ? .semibold : .regular)
                                         .padding(.horizontal, 16)
                                         .padding(.vertical, 8)
                                         .background(temaSeleccionado == tema ? Color.blue : Color.gray.opacity(0.2))
@@ -92,7 +93,6 @@ struct ComunidadView: View {
                         }
                         .padding(.horizontal)
                     }
-                    
                     // Sección de tendencias
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Tendencias en la comunidad")
@@ -125,7 +125,7 @@ struct ComunidadView: View {
                         .padding(.vertical, 8)
                     
                     // Feed de publicaciones
-                    VStack(spacing: 0) {
+                    VStack(spacing: 16) { // Aumenté el spacing para separar mejor las tarjetas
                         ForEach(publicaciones) { publicacion in
                             PublicacionCard(publicacion: publicacion, accionMeGusta: {
                                 if let index = publicaciones.firstIndex(where: { $0.id == publicacion.id }) {
@@ -134,8 +134,7 @@ struct ComunidadView: View {
                                 }
                             })
                             
-                            Divider()
-                                .padding(.horizontal)
+                            // Eliminé el Divider porque ya las tarjetas están separadas visualmente
                         }
                     }
                 }
@@ -415,6 +414,10 @@ struct PublicacionCard: View {
             }
         }
         .padding()
+        .background(Color.white)
+        .cornerRadius(16)
+        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+        .padding(.horizontal)
     }
 }
 
