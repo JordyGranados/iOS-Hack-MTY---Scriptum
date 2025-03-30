@@ -56,23 +56,23 @@ struct TabBarExampleView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            // Contenido según el tab seleccionado
+            // Content based on selected tab
             Group {
                 if selectedTab == 0 {
-                    Text("Pantalla Inicio")
+                    ContentView()
                 } else if selectedTab == 1 {
-                    Text("Pantalla Búsqueda")
+                    DescubrimientosView()
                 } else if selectedTab == 2 {
-                    Text("Pantalla Añadir")
+                    MiSalud()
                 } else if selectedTab == 3 {
-                    Text("Pantalla Favoritos")
+                    ComunidadView()
                 } else {
-                    Text("Pantalla Perfil")
+                    HistorialView()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             
-            // Barra de navegación personalizada
+            // Custom navigation bar
             VStack {
                 Spacer()
                 CustomTabBar(selectedTab: $selectedTab, items: tabItems)
