@@ -82,6 +82,7 @@ struct ComunidadView: View {
                                 }) {
                                     Text(tema)
                                         .font(.subheadline)
+                                        .fontWeight(temaSeleccionado == tema ? .semibold : .regular)
                                         .padding(.horizontal, 16)
                                         .padding(.vertical, 8)
                                         .background(temaSeleccionado == tema ? Color.blue : Color.gray.opacity(0.2))
@@ -92,7 +93,6 @@ struct ComunidadView: View {
                         }
                         .padding(.horizontal)
                     }
-                    
                     // Sección de tendencias
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Tendencias en la comunidad")
@@ -125,7 +125,7 @@ struct ComunidadView: View {
                         .padding(.vertical, 8)
                     
                     // Feed de publicaciones
-                    VStack(spacing: 0) {
+                    VStack(spacing: 16) { // Aumenté el spacing para separar mejor las tarjetas
                         ForEach(publicaciones) { publicacion in
                             PublicacionCard(publicacion: publicacion, accionMeGusta: {
                                 if let index = publicaciones.firstIndex(where: { $0.id == publicacion.id }) {
@@ -134,8 +134,7 @@ struct ComunidadView: View {
                                 }
                             })
                             
-                            Divider()
-                                .padding(.horizontal)
+                            // Eliminé el Divider porque ya las tarjetas están separadas visualmente
                         }
                     }
                 }
@@ -415,6 +414,10 @@ struct PublicacionCard: View {
             }
         }
         .padding()
+        .background(Color.white)
+        .cornerRadius(16)
+        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+        .padding(.horizontal)
     }
 }
 
@@ -433,6 +436,21 @@ extension View {
 
 // Datos de muestra
 let datosPublicacionesMuestra = [
+    Publicacion(
+        usuario: Usuario(
+            nombre: "Ana García",
+            username: "ana_bienestar",
+            imagenPerfil: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop",
+            esVerificado: true
+        ),
+        contenido: "¡Miren lo que preparé hoy! Batido antiinflamatorio con cúrcuma, jengibre y frutas. Ha sido parte de mi rutina diaria durante el último mes y noto menos rigidez por las mañanas. La alimentación marca una gran diferencia. Receta en los comentarios 👇",
+        fecha: "5h",
+        imagenURL: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?q=80&w=2071&auto=format&fit=crop",
+        megustas: 122,
+        comentarios: 43,
+        compartidos: 15,
+        meGustaActivo: false
+    ),
     Publicacion(
         usuario: Usuario(
             nombre: "Laura Martínez",
@@ -461,21 +479,6 @@ let datosPublicacionesMuestra = [
         megustas: 38,
         comentarios: 24,
         compartidos: 7,
-        meGustaActivo: false
-    ),
-    Publicacion(
-        usuario: Usuario(
-            nombre: "Ana García",
-            username: "ana_bienestar",
-            imagenPerfil: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop",
-            esVerificado: true
-        ),
-        contenido: "¡Miren lo que preparé hoy! Batido antiinflamatorio con cúrcuma, jengibre y frutas. Ha sido parte de mi rutina diaria durante el último mes y noto menos rigidez por las mañanas. La alimentación marca una gran diferencia. Receta en los comentarios 👇",
-        fecha: "5h",
-        imagenURL: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?q=80&w=2071&auto=format&fit=crop",
-        megustas: 122,
-        comentarios: 43,
-        compartidos: 15,
         meGustaActivo: false
     ),
     Publicacion(
