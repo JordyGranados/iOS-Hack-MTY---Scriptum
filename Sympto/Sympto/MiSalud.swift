@@ -37,13 +37,16 @@ struct MiSalud: View {
                 .padding(.bottom, 8)
 
                 Text("Enfermedad: \(enfermedad)")
-                    .font(.subheadline)
+                    .font(.title2.bold())
                     .frame(maxWidth: .infinity, alignment: .center)
 
                 ForEach(sintomas.indices, id: \.self) { index in
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(sintomas[index].nombre)
+                    HStack(alignment: .center) {
+                        Text("Nivel de \(sintomas[index].nombre)")
                             .font(.headline)
+                            .frame(width: 180, alignment: .leading)
+                        
+                        Spacer()
 
                         HStack(spacing: 12) {
                             ForEach(niveles, id: \.self) { nivel in
@@ -62,7 +65,8 @@ struct MiSalud: View {
                         }
                         .frame(maxWidth: .infinity, alignment: .center)
                     }
-
+                    .padding(.vertical, 8)
+                    
                     Divider()
                 }
 
@@ -121,20 +125,20 @@ struct MiSalud: View {
         switch enfermedad.lowercased() {
         case "lupus":
             sintomas = [
-                Sintoma(nombre: "Nivel de Fatiga Hoy:"),
-                Sintoma(nombre: "Nivel de Dolor Articular:"),
-                Sintoma(nombre: "Nivel de Fiebre:"),
-                Sintoma(nombre: "Nivel de Dolor en el pecho:"),
-                Sintoma(nombre: "Nivel de Inflamación en articulaciones:")
+                Sintoma(nombre: "Fatiga Hoy:"),
+                Sintoma(nombre: "Dolor Articular:"),
+                Sintoma(nombre: "Fiebre:"),
+                Sintoma(nombre: "Dolor en el pecho:"),
+                Sintoma(nombre: "Inflamación en articulaciones:")
             ]
         case "fibromialgia":
             sintomas = [
-                Sintoma(nombre: "Nivel de Fatiga Hoy:"),
-                Sintoma(nombre: "Nivel de Dolor muscular:"),
-                Sintoma(nombre: "Nivel de Niebla mental:"),
-                Sintoma(nombre: "Nivel de Insomnio:"),
-                Sintoma(nombre: "Nivel de Hipersensibilidad:"),
-                Sintoma(nombre: "Nivel de Dolor General:")
+                Sintoma(nombre: "Fatiga Hoy:"),
+                Sintoma(nombre: "Dolor muscular:"),
+                Sintoma(nombre: "Niebla mental:"),
+                Sintoma(nombre: "Insomnio:"),
+                Sintoma(nombre: "Hipersensibilidad:"),
+                Sintoma(nombre: "Dolor General:")
             ]
         default:
             sintomas = [Sintoma(nombre: "Síntoma general 1")]
