@@ -17,10 +17,12 @@ struct InicioView: View {
                         Text("Hola, María")
                             .font(.title)
                             .fontWeight(.bold)
+                            .frame(maxWidth: .infinity, alignment: .center)
                         
                         Text("Esperamos que hoy sea un buen día")
                             .font(.subheadline)
                             .foregroundColor(.gray)
+                            .frame(maxWidth: .infinity, alignment: .center)
                     }
                     
                     Spacer()
