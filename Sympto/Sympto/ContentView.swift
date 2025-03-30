@@ -11,10 +11,20 @@ struct ContentView: View {
                 Spacer()
 
                 // Logo or Title
-                Text("Sympto")
-                    .font(.system(size: 40, weight: .bold))
-                    .padding(.bottom, 30)
-                    .foregroundColor(.black)
+                HStack{
+                    // Logo or Title
+                    Image("SymptoLogo_corazon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 80, height: 80)
+                        .padding(.bottom, 15)
+                    
+                    Text("Sympto")
+                        .font(.system(size: 45, weight: .bold))
+                        .padding(.bottom, 15)
+                        .foregroundColor(Color(hex: "#111111"))
+                        
+                }
 
                 // Form Card
                 VStack(alignment: .leading, spacing: 15) {
