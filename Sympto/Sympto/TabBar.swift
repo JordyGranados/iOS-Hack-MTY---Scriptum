@@ -1,4 +1,3 @@
-// CustomTabBar.swift
 import SwiftUI
 
 struct TabItem {
@@ -40,6 +39,7 @@ struct CustomTabBar: View {
             Color.white
                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: -2)
         )
+        .edgesIgnoringSafeArea(.bottom)  // Esta línea extiende la barra hasta el borde
     }
 }
 
@@ -56,27 +56,29 @@ struct TabBarExampleView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            // Content based on selected tab
+            // Contenido basado en la pestaña seleccionada
             Group {
                 if selectedTab == 0 {
                     InicioView()
                 } else if selectedTab == 1 {
                     DescubrimientosView()
-                }  else if selectedTab == 2 {
+                } else if selectedTab == 2 {
                     MiSalud()
-                }  else if selectedTab == 3 {
+                } else if selectedTab == 3 {
                     ComunidadView()
                 } else {
                     HistorialView()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.bottom, 60)  // Padding para compensar la altura de la barra
             
-            // Custom navigation bar
+            // Barra de navegación personalizada
             VStack {
                 Spacer()
                 CustomTabBar(selectedTab: $selectedTab, items: tabItems)
             }
+            .ignoresSafeArea(.keyboard)  // Para mejor manejo del teclado cuando aparece
         }
     }
 }
