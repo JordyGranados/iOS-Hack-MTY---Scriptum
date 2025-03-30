@@ -30,7 +30,7 @@ struct ContentView: View {
                     Text("Contraseña")
                         .font(.subheadline)
                         .foregroundColor(.black)
-                    SecureField("mi contraseña", text: $password)
+                    SecureField("Mi contraseña", text: $password)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .foregroundColor(.black)
 
@@ -42,7 +42,7 @@ struct ContentView: View {
                         NavigationLink(destination: Signup()) {
                             Text("Regístrate")
                                 .font(.footnote)
-                                .foregroundColor(.blue)
+                                .foregroundColor(Color(hex: "#4B858D"))
                                 .underline()
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -55,7 +55,7 @@ struct ContentView: View {
                             .font(.headline)
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color.green)
+                            .background(Color(hex: "#FF9A5B"))
                             .foregroundColor(.white)
                             .cornerRadius(10)
                             .shadow(radius: 3)

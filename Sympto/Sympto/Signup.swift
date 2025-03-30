@@ -66,7 +66,7 @@ struct Signup: View {
                         NavigationLink(destination: ContentView()){
                             Text("Inicia Sesión")
                                 .font(.footnote)
-                                .foregroundColor(.blue)
+                                .foregroundColor(Color(hex: "#4B858D"))
                                 .underline()
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -81,7 +81,7 @@ struct Signup: View {
                             .font(.headline)
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color.green)
+                            .background(Color(hex: "#FF9A5B"))
                             .foregroundColor(.white)
                             .cornerRadius(10)
                             .shadow(radius: 3)
