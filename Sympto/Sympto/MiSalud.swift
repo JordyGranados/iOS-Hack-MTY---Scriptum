@@ -61,6 +61,7 @@ struct MiSalud: View {
                                         .foregroundColor(Color(hex: "#111111"))
                                         .clipShape(Capsule())
                                 }
+                                .buttonStyle(PlainButtonStyle())
                             }
                         }
                         .frame(maxWidth: .infinity, alignment: .center)
@@ -112,6 +113,7 @@ struct MiSalud: View {
                         .cornerRadius(12)
                 }
                 .padding(.top)
+                .buttonStyle(PlainButtonStyle())
 
                 Spacer().frame(height: 100) // Espacio para TabView
             }
